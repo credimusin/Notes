@@ -13,7 +13,7 @@ interface Options {
   limit: number
   linkToMore: SimpleSlug | false
   showTags: boolean
-  filter: (f: QuartzPluginData) => boolean
+  filter: (f: QuartzPluginData) => boolean |undefined
   sort: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }
 
@@ -34,6 +34,9 @@ export default ((userOpts?: Partial<Options>) => {
   }: QuartzComponentProps) => {
     const opts = { ...defaultOptions(cfg), ...userOpts }
     const pages = allFiles.filter(opts.filter).sort(opts.sort)
+    if (pages.length === 0) {
+      return null
+    }
     const remaining = Math.max(0, pages.length - opts.limit)
     return (
       <div class={classNames(displayClass, "recent-notes")}>
