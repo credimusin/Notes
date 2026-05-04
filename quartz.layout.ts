@@ -47,7 +47,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.RecentNotes({
       limit: 4,
       filter: (f) => 
-        f.slug !== "index" &&
+        f.slug !== "index" && (f.slug ? !f.slug.endsWith("/index") : true) &&
         f.dates &&
         (f.dates.modified ?? f.dates.created ?? new Date(0)) >
           new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000),
@@ -75,7 +75,6 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
   ],
   right: [],
 }
