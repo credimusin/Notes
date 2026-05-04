@@ -5,7 +5,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Imaginal Blog",
+    pageTitle: "Imaginal Dev",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -13,7 +13,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "ru-RU",
-    baseUrl: "blog.imaginal.dev",
+    baseUrl: "imaginal.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
