@@ -44,19 +44,33 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.RecentNotes({
-      limit: 4,
-      filter: (f) => 
-        f.slug !== "index" && (f.slug ? !f.slug.endsWith("/index") : true) &&
-        f.dates &&
-        (f.dates.modified ?? f.dates.created ?? new Date(0)) >
-          new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000),
-    }),
+    Component.DesktopOnly(
+      Component.RecentNotes({
+        limit: 4,
+        filter: (f) =>
+          f.slug !== "index" &&
+          (f.slug ? !f.slug.endsWith("/index") : true) &&
+          f.dates &&
+          (f.dates.modified ?? f.dates.created ?? new Date(0)) >
+            new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000),
+      }),
+    ),
   ],
   right: [
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
+    Component.MobileOnly(
+      Component.RecentNotes({
+        limit: 4,
+        filter: (f) =>
+          f.slug !== "index" &&
+          (f.slug ? !f.slug.endsWith("/index") : true) &&
+          f.dates &&
+          (f.dates.modified ?? f.dates.created ?? new Date(0)) >
+            new Date(new Date().getTime() - 30 * 24 * 60 * 60 * 1000),
+      }),
+    ),
   ],
 }
 
