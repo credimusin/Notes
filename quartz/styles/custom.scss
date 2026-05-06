@@ -37,11 +37,17 @@ article {
   background-color: var(--light);
   border: 1px solid var(--lightgray);
   box-shadow: 1px 1px 0px var(--lightgray);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 
-  &:hover {
-    box-shadow: 5px 5px 0px var(--dark);
-    transform: translate(-3px, -3px);
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      border-color: var(--gray);
+      
+      h3 a {
+        color: var(--secondary) !important;
+      }
+    }
   }
 }
 
@@ -50,20 +56,21 @@ a.internal, a.external {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.1s ease, background-color 0.1s ease;
-  padding: 0 2px;
+  padding: 0 4px;
   color: var(--dark);
+  background-color: var(--lightgray);
 
-  &:hover {
-    color: var(--secondary) !important;
-    background-color: var(--highlight);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
+  @media (hover: hover) {
+    &:hover {
+      color: var(--secondary) !important;
+      background-color: var(--highlight);
+      text-decoration: none;
+    }
   }
 }
 
 a.internal {
-  background-color: transparent;
+  background-color: var(--lightgray);
 }
 
 // Header styling
@@ -79,9 +86,11 @@ h3 {
   padding-left: 0.75rem;
   transition: color 0.2s ease, border-color 0.2s ease;
 
-  &:hover {
-    color: var(--secondary);
-    border-color: var(--secondary);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
   }
 }
 
@@ -99,9 +108,11 @@ h3 {
     font-size: 1.2rem;
     padding-bottom: 0.5rem;
     
-    &:hover {
-      color: var(--secondary);
-      border-bottom-color: var(--secondary);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--secondary);
+        border-bottom-color: var(--secondary);
+      }
     }
   }
 
@@ -110,15 +121,26 @@ h3 {
     padding: 1rem;
     background: var(--light);
     border: 1px solid var(--lightgray);
-    border-bottom: none;
-    transition: background 0.1s ease;
+    border-bottom: 1px solid transparent; // Placeholder to prevent jump
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    position: relative;
 
     &:last-child {
       border-bottom: 1px solid var(--lightgray);
     }
 
-    &:hover {
-      background: var(--highlight);
+    @media (hover: hover) {
+      &:hover {
+        background: var(--light);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        border-color: var(--gray);
+        border-bottom-color: var(--gray);
+        z-index: 10;
+        
+        h3 {
+          color: var(--secondary);
+        }
+      }
     }
 
     h3 {
@@ -128,16 +150,18 @@ h3 {
       padding-left: 0;
       text-transform: none;
       color: var(--dark);
-      transition: color 0.1s ease;
+      transition: color 0.3s ease;
       
       a {
         background-color: transparent;
         padding: 0;
         color: inherit;
-        &:hover {
-          background-color: transparent;
-          text-decoration: none;
-          color: var(--secondary) !important;
+        @media (hover: hover) {
+          &:hover {
+            background-color: transparent;
+            text-decoration: none;
+            color: var(--secondary) !important;
+          }
         }
       }
     }
@@ -164,16 +188,22 @@ h3 {
   background-color: var(--light);
   border: 1px solid var(--lightgray);
   box-shadow: 1px 1px 0px var(--lightgray);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 
-  &:hover {
-    box-shadow: 4px 4px 0px var(--dark);
-    transform: translate(-3px, -3px);
+  @media (hover: hover) {
+    &:hover {
+      border-color: var(--gray);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    }
   }
 }
 
 // Mobile layout fixes
 @media all and (max-width: 1200px) {
+  .page-title {
+    margin-bottom: 1rem !important;
+  }
+
   .readermode {
     position: fixed !important;
     top: 1.5rem !important;
@@ -252,8 +282,8 @@ h3 {
 .popover {
   .popover-inner {
     padding: 1.5rem !important;
-    box-shadow: 8px 8px 0px var(--dark) !important;
-    border: 1px solid var(--dark) !important;
+    box-shadow: 4px 4px 0px var(--lightgray) !important;
+    border: 1px solid var(--gray) !important;
     background-color: var(--light) !important;
   }
 }
