@@ -39,6 +39,11 @@ export default ((opts?: Partial<FolderContentOptions>) => {
     const allPagesInFolder: QuartzPluginData[] =
       folder.children
         .map((node) => {
+          // skip index files
+          if (node.name === "index") {
+            return undefined
+          }
+
           // regular file, proceed
           if (node.data) {
             return node.data
