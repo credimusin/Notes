@@ -121,12 +121,12 @@ h3 {
     padding: 1rem;
     background: var(--light);
     border: 1px solid var(--lightgray);
-    border-bottom: 1px solid transparent; // Placeholder to prevent jump
+    margin-top: -1px;
     transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
     position: relative;
 
-    &:last-child {
-      border-bottom: 1px solid var(--lightgray);
+    &:first-child {
+      margin-top: 0;
     }
 
     @media (hover: hover) {
@@ -134,9 +134,8 @@ h3 {
         background: var(--light);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
         border-color: var(--gray);
-        border-bottom-color: var(--gray);
         z-index: 10;
-        
+
         h3 {
           color: var(--secondary);
         }
