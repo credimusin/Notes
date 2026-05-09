@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     },
     locale: "ru-RU",
     baseUrl: "imaginal.dev",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian", "80-89 System"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
