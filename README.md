@@ -1,4 +1,4 @@
-Мой [Imaginal Blog](https://imaginal.dev) и публичные заметки.  
+Мой [Imaginal Blog](https://blog.imaginal.dev) и публичные заметки.  
 
 
 ***

@@ -13,7 +13,7 @@ const config: QuartzConfig = {
       provider: "plausible",
     },
     locale: "ru-RU",
-    baseUrl: "imaginal.dev",
+    baseUrl: "blog.imaginal.dev",
     ignorePatterns: ["private", "templates", ".obsidian", "80-89 System"],
     defaultDateType: "modified",
     theme: {
