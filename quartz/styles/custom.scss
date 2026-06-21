@@ -286,3 +286,71 @@ h3 {
     background-color: var(--light) !important;
   }
 }
+
+// Minimal Frame Layout (e.g. 404 Page)
+.page[data-frame="minimal"] > #quartz-body {
+  display: grid !important;
+  grid-template-rows: 1fr auto !important;
+  min-height: 100vh !important;
+  box-sizing: border-box !important;
+
+  .center.minimal {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-grow: 1 !important;
+    padding: 3rem 1.5rem !important;
+    box-sizing: border-box !important;
+    
+    // Industrial Card for 404
+    article {
+      max-width: 480px !important;
+      width: 100% !important;
+      text-align: center !important;
+      padding: 3rem 2rem !important;
+      background-color: var(--light) !important;
+      border: 1px solid var(--gray) !important;
+      box-shadow: 4px 4px 0px var(--lightgray) !important;
+      box-sizing: border-box !important;
+
+      h1 {
+        font-size: 5rem !important;
+        line-height: 1 !important;
+        margin: 0 0 1.5rem 0 !important;
+        color: var(--secondary) !important;
+        font-family: var(--headerFont) !important;
+        letter-spacing: -0.05em !important;
+        font-weight: 700 !important;
+      }
+
+      p {
+        font-size: 1.1rem !important;
+        color: var(--darkgray) !important;
+        margin: 0 0 2rem 0 !important;
+        line-height: 1.6 !important;
+      }
+
+      // Return home link styled as a solid industrial button
+      a {
+        display: inline-block !important;
+        padding: 0.75rem 1.5rem !important;
+        background-color: var(--dark) !important;
+        color: var(--light) !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.05em !important;
+        text-decoration: none !important;
+        transition: background-color 0.15s ease, color 0.15s ease !important;
+        border: 1px solid var(--dark) !important;
+
+        &:hover {
+          background-color: var(--secondary) !important;
+          border-color: var(--secondary) !important;
+          color: var(--light) !important;
+        }
+      }
+    }
+  }
+}
+
