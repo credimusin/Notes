@@ -9,6 +9,4 @@ tags:
 
 Проект изначально разработан на [Laravel](https://laravel.com/), для мобильного дополнительно разработана [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app) версия.   
 
-В [[11.01 Discussions|обсуждениях]] чек-лист обсуждений и внедрений новых функций, исправления ошибок и внедрения идей.  
-
-Проект пока живет по адресу: https://drills.imaginal.dev
+Проект живет по адресу: https://drills.imaginal.dev
