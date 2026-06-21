@@ -1,3 +1,288 @@
-@use "./variables.scss" as *;
+@use "./base.scss";
 
-// put your custom CSS here!
+// Global Reset for Industrial Look
+* {
+  border-radius: 0 !important;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--darkgray);
+}
+
+// Page Title & Breadcrumbs styling
+.page-title a, .breadcrumb-container a {
+  color: var(--dark) !important;
+  transition: color 0.15s ease;
+  &:hover {
+    color: var(--secondary) !important;
+  }
+}
+
+// Architectural effect for the article
+article {
+  padding: 3rem;
+  background-color: var(--light);
+  border: 1px solid var(--lightgray);
+  box-shadow: 1px 1px 0px var(--lightgray);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      border-color: var(--gray);
+      
+      h3 a {
+        color: var(--secondary) !important;
+      }
+    }
+  }
+}
+
+// Interactive links
+a.internal, a.external {
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.1s ease, background-color 0.1s ease;
+  padding: 0 4px;
+  color: var(--dark);
+  background-color: var(--lightgray);
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--secondary) !important;
+      background-color: var(--highlight);
+      text-decoration: none;
+    }
+  }
+}
+
+a.internal {
+  background-color: var(--lightgray);
+}
+
+// Header styling
+h3 {
+  color: var(--dark);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  border-left: 3px solid var(--tertiary);
+  padding-left: 0.75rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--secondary);
+      border-color: var(--secondary);
+    }
+  }
+}
+
+// Recent Notes styling
+.recent-notes {
+  & > h3 {
+    margin-top: 0;
+    color: var(--dark);
+    font-family: var(--headerFont);
+    border-bottom: 1px solid var(--dark);
+    border-left: none;
+    padding-left: 0;
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    
+    @media (hover: hover) {
+      &:hover {
+        color: var(--secondary);
+        border-bottom-color: var(--secondary);
+      }
+    }
+  }
+
+  .recent-li {
+    margin-bottom: 0;
+    padding: 1rem;
+    background: var(--light);
+    border: 1px solid var(--lightgray);
+    margin-top: -1px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background: var(--light);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+        border-color: var(--gray);
+        z-index: 10;
+
+        h3 {
+          color: var(--secondary);
+        }
+      }
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1rem;
+      border-left: none;
+      padding-left: 0;
+      text-transform: none;
+      color: var(--dark);
+      transition: color 0.3s ease;
+      
+      a {
+        background-color: transparent;
+        padding: 0;
+        color: inherit;
+        @media (hover: hover) {
+          &:hover {
+            background-color: transparent;
+            text-decoration: none;
+            color: var(--secondary) !important;
+          }
+        }
+      }
+    }
+
+    .meta {
+      font-size: 0.75rem;
+      color: var(--tertiary);
+      margin: 0.2rem 0;
+    }
+  }
+}
+
+// Explorer styling
+.explorer-content {
+  ul {
+    list-style: none;
+    padding-left: 1rem;
+  }
+}
+
+// Graph hover effect
+.graph-outer {
+  padding: 1rem;
+  background-color: var(--light);
+  border: 1px solid var(--lightgray);
+  box-shadow: 1px 1px 0px var(--lightgray);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: var(--gray);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    }
+  }
+}
+
+// Mobile layout fixes
+@media all and (max-width: 1200px) {
+  .page-title {
+    margin-bottom: 1rem !important;
+  }
+
+  .readermode {
+    position: fixed !important;
+    top: 1.5rem !important;
+    right: 1.5rem !important;
+    z-index: 1000 !important;
+    width: 44px !important;
+    height: 44px !important;
+    background-color: var(--light) !important;
+    border: 1px solid var(--dark) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 4px 4px 0px var(--dark) !important;
+
+    svg {
+      position: static !important;
+      width: 24px !important;
+      height: 24px !important;
+    }
+
+    &:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--dark) !important;
+    }
+  }
+
+  :root[reader-mode="on"] {
+    .sidebar.right {
+      display: none !important;
+    }
+    .sidebar.left {
+      opacity: 1 !important;
+      visibility: hidden !important;
+      background: none !important;
+      padding: 0 !important;
+      height: 0 !important;
+      margin: 0 !important;
+      border: none !important;
+      box-shadow: none !important;
+
+      .readermode {
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .sidebar.left {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+    padding: 2rem 1.5rem 0 1.5rem !important;
+
+    .spacer {
+      display: none !important;
+    }
+
+    & > * {
+      width: 100% !important;
+    }
+  }
+
+  .sidebar.right {
+    flex-direction: column !important;
+    padding: 0 1.5rem !important;
+    
+    & > * {
+      width: 100% !important;
+      flex: none !important;
+      max-height: none !important;
+    }
+  }
+}
+
+// Popover (Preview) Customization
+.popover {
+  .popover-inner {
+    padding: 1.5rem !important;
+    box-shadow: 4px 4px 0px var(--lightgray) !important;
+    border: 1px solid var(--gray) !important;
+    background-color: var(--light) !important;
+  }
+}

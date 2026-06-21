@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 import { installPlugins, parsePluginSource } from "./gitLoader.js"
-import config from "../../../quartz.js"
+import { readFileSync } from "fs"
+import YAML from "yaml"
 
 async function main() {
-  const quartzConfig: any = config
+  const configRaw = readFileSync("quartz.config.yaml", "utf-8")
+  const quartzConfig = YAML.parse(configRaw) as any
   const externalPlugins = quartzConfig.externalPlugins || []
 
   if (externalPlugins.length === 0) {
