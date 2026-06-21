@@ -1,41 +1,10 @@
-# Notes
+Мой [Imaginal Blog](https://blog.imaginal.dev) и публичные заметки.  
 
-Персональный цифровой сад и база знаний, работающие на генераторе **Quartz v5**.
 
-## Быстрый старт
+***
 
-### 1. Установка зависимостей и плагинов
-Установите все зависимости проекта и настройте локальные плагины:
-```bash
-npm install
-npm run install-plugins
-```
+Build with **Quartz v5**  
 
-### 2. Локальный запуск (Режим разработки)
-Запустите локальный сервер для предпросмотра заметок в реальном времени:
-```bash
-npx quartz build --serve
-```
-Сайт будет доступен по адресу `http://localhost:8080`.
 
-### 3. Сборка статического сайта
-Для полной компиляции статических HTML-файлов (например, перед деплоем):
-```bash
-npm run build
-```
-Скомпилированный сайт будет находиться в папке `public/`.
-
-## Структура проекта
-
-- `content/` — ваши заметки в формате Markdown.
-- `quartz.config.yaml` — основной файл конфигурации плагинов, темы и внешнего вида Quartz v5 (ранее `quartz.config.ts`).
-- `plugins/` — локальные плагины проекта:
-  - `plugins/footer/` — наш локальный плагин для футера. В нем отключена вотермарка «Создано с помощью Quartz», но полностью сохранены ссылки на ваши ресурсы.
-
-## Деплой на Cloudflare Pages
-
-Проект оптимизирован для автоматического деплоя в Cloudflare Pages.
-- **Команда сборки (Build command):** `npm run build`
-- **Директория вывода (Output directory):** `public`
-
-При каждом пуше в ветку `main` Cloudflare Pages автоматически выполнит команду `npm run build` (которая запустит пре-билд установку локальных плагинов и скомпилирует сайт).
+Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.  
+Read the documentation and get started: https://quartz.jzhao.xyz/
