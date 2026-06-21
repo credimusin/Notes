@@ -1,8 +1,8 @@
 import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
-import { RecentNotes } from "./.quartz/plugins"
+import { componentRegistry } from "./quartz/components/registry"
 import Footer from "./quartz/components/Footer"
 
-RecentNotes({
+componentRegistry.setOptionOverrides("recent-notes", {
   limit: 4,
   filter: (f) =>
     f.slug !== "index" &&
